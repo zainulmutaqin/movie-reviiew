@@ -20,18 +20,6 @@ class ArticleController extends Controller
         return view('article.index', compact('articles'));
     }
 
-    public function welcome(){
-        $articles = Article::orderBy('created_at', "desc")->paginate(5);
-
-        return view('welcome', compact('articles'));
-    }
-
-    public function detail($id){
-        $article = Article::find($id);
-
-        return view ('detail', compact('article'));
-    }
-
     public function show($id){
         $article = Article::find($id);
 

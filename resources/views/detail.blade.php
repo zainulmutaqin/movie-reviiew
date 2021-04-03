@@ -27,27 +27,33 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">Confer</a>
+                <a href="index.html" class="navbar-brand">Movie Review</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="feature.html" class="nav-item nav-link">Feature</a>
-                        <a href="advisor.html" class="nav-item nav-link">Advisor</a>
-                        <a href="review.html" class="nav-item nav-link">Review</a>
+                        <a href="{{route('welcome')}}" class="nav-item nav-link active">Home</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
                                 <a href="blog.html" class="dropdown-item">Blog Page</a>
                                 <a href="single.html" class="dropdown-item">Single Page</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        @if (Route::has('login'))
+                        @auth
+                            <a href="{{ url('/home') }}" class="nav-item nav-link">Profile</a>
+                                @else
+                                <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
+
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" class="nav-item nav-link" >Register</a>
+                                    @endif
+                                @endauth
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

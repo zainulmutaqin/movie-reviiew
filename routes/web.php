@@ -14,13 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ArticleController@welcome')->name('welcome');
+Route::get('/', 'WelcomeController@welcome')->name('welcome');
+Route::get('/{id}/detail', 'WelcomeController@detail')->name('detail');
 
 Auth::routes();
  
 Route::middleware('role:author')->get('/home', 'HomeController@index')->name('home');
 Route::middleware('role:admin')->get('/dashboard', 'HomeController@index')->name('dashboard');
 //Admin
+    Route::get('/article/create', 'ArticleController@create')->name('article.create');
+    Route::post('/article/create', 'ArticleController@store')->name('article.store');
+
 Route::get('/article', 'ArticleController@index')->name('article.index');
 Route::get('/article/create', 'ArticleController@create')->name('article.create');
 Route::post('/article/create', 'ArticleController@store')->name('article.store');
