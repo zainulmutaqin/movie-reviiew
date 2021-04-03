@@ -60,8 +60,3 @@
           </div>
         </div>
 @endsection
-<script>
-    $(".delete").on("submit", function(){
-        return confirm("Are you sure?");
-    });
-</script>

@@ -9,6 +9,11 @@ use File;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         $articles = Article::all();
 
@@ -19,6 +24,12 @@ class ArticleController extends Controller
         $articles = Article::orderBy('created_at', "desc")->paginate(5);
 
         return view('welcome', compact('articles'));
+    }
+
+    public function detail($id){
+        $article = Article::find($id);
+
+        return view ('detail', compact('article'));
     }
 
     public function show($id){

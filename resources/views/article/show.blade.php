@@ -3,16 +3,21 @@
 @section('content')
         
         <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header" style="color:white;font-size:50px;font-weight:bold;background-color:#181D26;">{{$article->title}}<p style="color:green;font-size:20px">{{$article->category->name}}</p></div>
-
-                <div class="card-body"> 
-                    <img width="100%" height="10%" src="<?php echo asset("uploads/banner/$article->banner")?>"></img>
+        <div class="single mt-125">
+            <div class="container">
+                <div class="section-header">
+                    <p>Category: {{$article->category->name}}</p>
+                    <h2>{{$article->title}}</h2>
                 </div>
-                <div class="card-body"> 
-                {{$article->content}}
-                </div> 
+                <div class="row col-12">
+                    <div class="col-12" style="height:400px">
+                            <img style="max-width: 100%;max-height: 100%;
+                            display: block;" src="<?php echo asset("uploads/banner/$article->banner")?>" alt="Image">
+                        <p>
+                            {{$article->content}}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
         </div>
