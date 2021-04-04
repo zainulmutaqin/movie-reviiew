@@ -141,15 +141,14 @@
                 <div class="owl-carousel blog-carousel">
                 @foreach($articles as $a)
                     <div class="blog-item">
-                        <div class="blog-img" style="height:300px">
-                            <img style="max-width: 100%;max-height: 100%;
-                            display: block;" src="<?php echo asset("uploads/banner/$a->banner")?>" alt="Blog">
+                        <div class="blog-img">
+                            <img style="width: 100%;height: 20vw;object-fit: cover;" src="<?php echo asset("uploads/banner/$a->banner")?>" alt="Blog">
                         </div>
                         <div class="blog-content">
                             <h2 class="blog-title">{{$a->title}}</h2>
                             <div class="blog-meta">
                                 <i class="fa fa-list-alt"></i>
-                                <a href="">{{$a->category->name}}</a>
+                                <a href="{{route('cdetail',  $a->category->slug)}}">{{$a->category->name}}</a>
                                 <i class="fa fa-calendar-alt"></i>
                                 <p><?php echo $a->created_at->format('l j F Y')?></p>
                             </div>
@@ -157,7 +156,7 @@
                                 <p>
                                 {{str_limit($a->content, 100 ," ...")}}
                                 </p>
-                                <a class="btn" href="{{ route('detail', $a->id)}}">Read More</a>
+                                <a class="btn" href="{{ route('detail', [$a->category->slug, $a->slug])}}">Read More</a>
                             </div>
                         </div>
                     </div>

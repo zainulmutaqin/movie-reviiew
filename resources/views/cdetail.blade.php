@@ -59,27 +59,56 @@
             </div>
         </div>
         <!-- Nav Bar End -->
-
-
-        <!-- Single Page Start -->
-        <div class="mt-125">
+        
+        
+        <!-- Blog Start -->
+        <div class="blog blog-page mt-125">
             <div class="container">
                 <div class="section-header">
-                    <p>Category: {{$article->category->name}}</p>
-                    <h2>{{$article->title}}</h2>
+                    <p>Consulting Blog</p>
+                    <h2>Latest From Our Consulting Blog</h2>
                 </div>
                 <div class="row">
-                    <div class="col-12" style="text-align:center;">
-                            <img style="height: 500px;
-                            display: inline-block;margin:0 0 25px 0" src="<?php echo asset("uploads/banner/$article->banner")?>" alt="Image">
+                    @foreach($categories as $category)
+                    <div class="col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img style="width: 100%;height: 20vw;object-fit: cover;" src="<?php echo asset("uploads/banner/$categories->banner")?>" alt="Blog">
+                            </div>
+                            <div class="blog-content">
+                                <h2 class="blog-title">{{$categories->title}}</h2>
+                                <div class="blog-meta">
+                                    <i class="fa fa-list-alt"></i>
+                                    <a href="">{{$categories->category->name}}</a>
+                                    <i class="fa fa-calendar-alt"></i>
+                                    <p>{{$categories->created_at}}</p>
+                                </div>
+                                <div class="blog-text">
+                                    <p>
+                                    {{$categories->content}}    
+                                    </p>
+                                    <a class="btn" href="{{ route('detail', [$categories->category->slug, $categories->slug ]) }}">Read More</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p>
-                        {{$article->content}}
-                    </p>
+                    @endforeach
+				</div>	
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul> 
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Single Page End -->
+		
+        <!-- Blog End -->
 
 
         <!-- Footer Start -->
