@@ -13,12 +13,11 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $data = [
-            ['Action','action'],
-            ['Horror','horror'],
+            ['Action','Mistery','Fiction']
         ];
-        for ($i=0; $i < count($data); $i++) {
-            $name = $data[$i][0];
-            $slug = $data[$i][1];
+        for ($i=0; $i < 3; $i++) {
+            $name = $data[0][$i];
+            $slug = str_slug($data[0][$i]);
             $created_at = Carbon::now();
             $updated_at = Carbon::now();
 

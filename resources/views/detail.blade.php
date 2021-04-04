@@ -65,7 +65,7 @@
         <div class="mt-125">
             <div class="container">
                 <div class="section-header">
-                    <p>Category: {{$article->category->name}}</p>
+                    <p>Category: <a href="{{route('cdetail',  $article->category->slug)}}">{{$article->category->name}}</a></p>
                     <h2>{{$article->title}}</h2>
                 </div>
                 <div class="row">

@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('title');
             $table->string('slug');
-            $table->string('content');
+            $table->longText('content');
             $table->string('banner')->nullable();
             $table->timestamps();
             
