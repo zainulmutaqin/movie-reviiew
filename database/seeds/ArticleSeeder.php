@@ -12,7 +12,7 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create('en_US');
+        $faker = Faker\Factory::create('id_ID');
         $title=[
             ['Captain America The First Avenger', 'Knives Out', 'Searching', 'Coco', 'Identity', 'Iron Man', 'Onwards']
         ];
@@ -30,7 +30,7 @@ class ArticleSeeder extends Seeder
               'category_id' => $category[0][$i],
               'content' => $faker->paragraph($nbSentences = 100, $variableNbSentences = true),
               'banner' => $banner[0][$i],
-              'created_at' => $faker->dateTime($max = 'now'),
+              'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $max = 'now'),
               'updated_at' => Carbon::now()
           ]);
 

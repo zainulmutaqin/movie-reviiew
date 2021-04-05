@@ -68,46 +68,44 @@
                 <div class="owl-carousel">
                     <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="img/carousel-1.jpg" alt="Image">
+                            <img src="img/knives-out.png" alt="Image">
                         </div>
                         <div class="carousel-text">
-                            <h1>Fastest Way to Achieve Success</h1>
+                            <h1>Knives Out</h1>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                            Knives Out is a 2019 American mystery film written and directed by Rian Johnson, and produced by Johnson and Ram Bergman. It follows a master detective investigating the death of the patriarch of a wealthy, dysfunctional family.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn" href=""><i class="fa fa-link"></i>Get Started</a>
-                                <a class="btn btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/qOg3AoRc4nI" data-target="#videoModal"><i class="fa fa-play"></i>Watch Video</a>
+                                <a class="btn btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/qOg3AoRc4nI" data-target="#videoModal"><i class="fa fa-play"></i>Watch Trailer</a>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="img/carousel-2.jpg" alt="Image">
+                            <img src="img/the-gifted.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
-                            <h1>Your Success Our Achievement</h1>
+                            <h1>The Gifted</h1>
                             <p>
-                                Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                            Pawaret "Pang" Sermrittirong (Korapat Kirdpan) is a struggling, ordinary 10th grade student in Ritdha High School. Here, a classification system is strictly implemented wherein students are divided into classes based on academic excellence. Pang is in Class VIII, the lowest level, and has no hopes of rising up the hierarchy.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn" href=""><i class="fa fa-link"></i>Get Started</a>
-                                <a class="btn btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal"><i class="fa fa-play"></i>Watch Video</a>
+                                <a class="btn btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/1c3FJXZBmIk" data-target="#videoModal"><i class="fa fa-play"></i>Watch Trailer</a>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="img/carousel-3.jpg" alt="Image">
+                            <img src="img/start-up.jpg" alt="Image">
                         </div>
                         <div class="carousel-text">
-                            <h1>Your Business Our Effort</h1>
+                            <h1>Start Up</h1>
                             <p>
-                                Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                            Set in South Korea's fictional Silicon Valley called Sandbox, Start-Up tells the story of people in the world of startup companies.
+                            Seo Dal-mi (Bae Suzy) is a bright and ambitious young woman who dreams of becoming Korea’s Steve Jobs. Dal-mi doesn’t have a fancy background but she’s passionate about her work. She has bright energy and is a person of great vitality, having experience in a wide range of part-time jobs.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn" href=""><i class="fa fa-link"></i>Get Started</a>
-                                <a class="btn btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal"><i class="fa fa-play"></i>Watch Video</a>
+                                <a class="btn btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/BemKyzbLDDc" data-target="#videoModal"><i class="fa fa-play"></i>Watch Trailer</a>
                             </div>
                         </div>
                     </div>
