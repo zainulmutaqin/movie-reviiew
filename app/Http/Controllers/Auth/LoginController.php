@@ -27,6 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+    
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
@@ -47,4 +48,5 @@ class LoginController extends Controller
 
         return redirect()->route('home');
     }
+    
 }

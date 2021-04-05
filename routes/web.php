@@ -14,14 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'WelcomeController@welcome')->name('welcome');
-Route::get('/{slug_category}', 'WelcomeController@cdetail')->name('cdetail');
-Route::get('/{slug_category}/{slug}', 'WelcomeController@detail')->name('detail');
-
 Auth::routes();
 
 
- 
 Route::middleware('role:author')->get('/home', 'HomeController@index')->name('home');
 Route::middleware('role:admin')->get('/dashboard', 'HomeController@index')->name('dashboard');
 //Admin
@@ -52,3 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('password', 'PasswordController@update')
         ->name('user.password.update');
 });
+
+Route::get('/', 'WelcomeController@welcome')->name('welcome');
+Route::get('/{slug_category}', 'WelcomeController@cdetail')->name('cdetail');
+Route::get('/{slug_category}/{slug}', 'WelcomeController@detail')->name('detail');
