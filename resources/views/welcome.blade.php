@@ -35,10 +35,13 @@
                     <div class="navbar-nav ml-auto">
                         <a href="{{route('welcome')}}" class="nav-item nav-link active">Home</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Category</a>
                             <div class="dropdown-menu">
-                                <a href="blog.html" class="dropdown-item">Blog Page</a>
-                                <a href="single.html" class="dropdown-item">Single Page</a>
+                            <?php $i=0 ?>
+                                @foreach($cat as $c)
+                                <a href="{{route('cdetail',  $cat[$i]['slug'])}}" class="dropdown-item">{{$cat[$i]["name"]}}</a>
+                                <?php $i++ ?>
+                                @endforeach
                             </div>
                         </div>
                         @if (Route::has('login'))
@@ -135,8 +138,7 @@
         <div class="blog">
             <div class="container">
                 <div class="section-header">
-                    <p>Consulting Blog</p>
-                    <h2>Latest From Our Consulting Blog</h2>
+                    <h2>Latest Movie Review</h2>
                 </div>
                 <div class="owl-carousel blog-carousel">
                 @foreach($articles as $a)
@@ -150,7 +152,7 @@
                                 <i class="fa fa-list-alt"></i>
                                 <a href="{{route('cdetail',  $a->category->slug)}}">{{$a->category->name}}</a>
                                 <i class="fa fa-calendar-alt"></i>
-                                <p><?php echo $a->created_at->format('l j F Y')?></p>
+                                <p><?php echo $a->created_at->format('l, j F Y')?></p>
                             </div>
                             <div class="blog-text">
                                 <p>

@@ -34,12 +34,15 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="{{route('welcome')}}" class="nav-item nav-link active">Home</a>
+                        <a href="{{route('welcome')}}" class="nav-item nav-link">Home</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Category</a>
                             <div class="dropdown-menu">
-                                <a href="blog.html" class="dropdown-item">Blog Page</a>
-                                <a href="single.html" class="dropdown-item">Single Page</a>
+                            <?php $i=0 ?>
+                                @foreach($cat as $c)
+                                <a href="{{route('cdetail',  $cat[$i]['slug'])}}" class="dropdown-item">{{$cat[$i]["name"]}}</a>
+                                <?php $i++ ?>
+                                @endforeach
                             </div>
                         </div>
                         @if (Route::has('login'))

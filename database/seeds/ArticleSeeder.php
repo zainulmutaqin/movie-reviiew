@@ -12,7 +12,7 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
+        $faker = Faker\Factory::create('en_US');
         $title=[
             ['Captain America The First Avenger', 'Knives Out', 'Searching', 'Coco', 'Identity', 'Iron Man', 'Onwards']
         ];

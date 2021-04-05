@@ -34,12 +34,15 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="{{route('welcome')}}" class="nav-item nav-link active">Home</a>
+                        <a href="{{route('welcome')}}" class="nav-item nav-link">Home</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Category</a>
                             <div class="dropdown-menu">
-                                <a href="blog.html" class="dropdown-item">Blog Page</a>
-                                <a href="single.html" class="dropdown-item">Single Page</a>
+                            <?php $i=0 ?>
+                                @foreach($cat as $c)
+                                <a href="{{route('cdetail',  $cat[$i]['slug'])}}" class="dropdown-item">{{$cat[$i]["name"]}}</a>
+                                <?php $i++ ?>
+                                @endforeach
                             </div>
                         </div>
                         @if (Route::has('login'))
@@ -65,33 +68,35 @@
         <div class="blog blog-page mt-125">
             <div class="container">
                 <div class="section-header">
-                    <p>Consulting Blog</p>
-                    <h2>Latest From Our Consulting Blog</h2>
+                    <p>All reviews from category</p>
+                    <h2>{{$category[0]["name"]}}</h2>
                 </div>
                 <div class="row">
+				    <?php $i=0 ?>
                     @foreach($categories as $category)
                     <div class="col-md-6">
                         <div class="blog-item">
                             <div class="blog-img">
-                                <img style="width: 100%;height: 20vw;object-fit: cover;" src="<?php echo asset("uploads/banner/$categories->banner")?>" alt="Blog">
+                                <img style="width: 100%;height: 20vw;object-fit: cover;" src="<?php echo asset("uploads/banner/".$categories[$i]["banner"])?>" alt="Blog">
                             </div>
                             <div class="blog-content">
-                                <h2 class="blog-title">{{$categories->title}}</h2>
+                                <h2 class="blog-title">{{$categories[$i]["title"]}}</h2>
                                 <div class="blog-meta">
                                     <i class="fa fa-list-alt"></i>
-                                    <a href="">{{$categories->category->name}}</a>
+                                    <a href="">{{$categories[$i]["category"]["name"]}}</a>
                                     <i class="fa fa-calendar-alt"></i>
-                                    <p>{{$categories->created_at}}</p>
+                                    <p>{{$categories[$i]["created_at"]->format('l, j F Y')}}</p>
                                 </div>
                                 <div class="blog-text">
                                     <p>
-                                    {{str_limit($categories->content, 100 ," ...")}}   
+                                    {{str_limit($categories[$i]["content"], 100 ," ...")}}    
                                     </p>
-                                    <a class="btn" href="{{ route('detail', [$categories->category->slug, $categories->slug ]) }}">Read More</a>
+                                    <a class="btn" href="{{ route('detail', [$categories[$i]['category']['slug'], $categories[$i]['slug']]) }}">Read More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php $i++ ?>
                     @endforeach
 				</div>	
             </div>
