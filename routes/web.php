@@ -37,6 +37,8 @@ Route::patch('/category/{id}/edit', 'CategoryController@update')->name('category
 Route::delete('/category/{id}/delete', 'CategoryController@destroy')->name('category.destroy');
 
 Route::get('/profile', 'ProfileController@index')->name('profile.index');
+Route::get('change-password', 'ChangePasswordController@index')->name('change.password.index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
 Route::group(['middleware' => ['auth', 'role:admin']], function() {
 
