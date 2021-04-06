@@ -18,6 +18,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Auth::routes();
+Route::get('auth/google', 'Auth\GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
+
 
 Route::get('/article/create', 'ArticleController@create')->name('article.create');
 Route::post('/article/create', 'ArticleController@store')->name('article.store');
