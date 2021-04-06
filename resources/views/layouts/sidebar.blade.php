@@ -3,6 +3,7 @@
         <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
     </a>
 
+    @if(auth()->user()->roles('admin'))
     <div class="sidebar">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -10,5 +11,14 @@
             </ul>
         </nav>
     </div>
+    @else
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                @include('layouts.menuauthor')
+            </ul>
+        </nav>
+    </div>
+@endif
 
 </aside>

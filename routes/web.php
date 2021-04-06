@@ -13,16 +13,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'WelcomeController@welcome')->name('welcome');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Auth::routes();
 
-
-Route::middleware('role:author')->get('/home', 'HomeController@index')->name('home');
-Route::middleware('role:admin')->get('/dashboard', 'HomeController@index')->name('dashboard');
-//Admin
 Route::get('/article/create', 'ArticleController@create')->name('article.create');
 Route::post('/article/create', 'ArticleController@store')->name('article.store');
-
 Route::get('/article', 'ArticleController@index')->name('article.index');
 Route::get('/article/create', 'ArticleController@create')->name('article.create');
 Route::post('/article/create', 'ArticleController@store')->name('article.store');
@@ -39,6 +37,20 @@ Route::patch('/category/{id}/edit', 'CategoryController@update')->name('category
 Route::delete('/category/{id}/delete', 'CategoryController@destroy')->name('category.destroy');
 
 Route::get('/profile', 'ProfileController@index')->name('profile.index');
+
+Route::group(['middleware' => ['auth', 'role:admin']], function() {
+
+    Route::get('/users/create', 'UserController@create')->name('users.create');
+    Route::post('/users/store', 'UserController@store')->name('users.store');
+    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::get('/users/create', 'UserController@create')->name('users.create');
+    Route::post('/users/create', 'UserController@store')->name('users.store');
+    Route::get('/users/{id}', 'UserController@show')->name('users.show');
+    Route::get('/users/{id}/edit', 'UserController@edit')->name('users.edit');
+    Route::patch('/users/{id}/edit', 'UserController@update')->name('users.update');
+    Route::delete('/users/{id}/delete', 'UserController@destroy')->name('users.destroy');
+});
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('password', 'PasswordController@edit')
@@ -48,6 +60,6 @@ Route::group(['middleware' => 'auth'], function () {
         ->name('user.password.update');
 });
 
-Route::get('/', 'WelcomeController@welcome')->name('welcome');
-Route::get('/{slug_category}', 'WelcomeController@cdetail')->name('cdetail');
-Route::get('/{slug_category}/{slug}', 'WelcomeController@detail')->name('detail');
+
+Route::get('/{category:slug}', 'WelcomeController@cdetail')->name('cdetail');
+Route::get('/{cattegory:slug}/{article:slug}', 'WelcomeController@detail')->name('detail');

@@ -30,16 +30,16 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown user-menu">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    <img src="https://infyom.com/images/logo/blue_logo_150x150.jpg"
-                         class="user-image img-circle elevation-2" alt="User Image">
+                    <!-- <img src="https://infyom.com/images/logo/blue_logo_150x150.jpg"
+                         class="user-image img-circle elevation-2" alt="User Image"> -->
                     <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- User image -->
                     <li class="user-header bg-primary">
-                        <img src="https://infyom.com/images/logo/blue_logo_150x150.jpg"
+                        <!-- <img src="https://infyom.com/images/logo/blue_logo_150x150.jpg"
                              class="img-circle elevation-2"
-                             alt="User Image">
+                             alt="User Image"> -->
                         <p>
                             {{ Auth::user()->name }}
                             <small>Member since {{ Auth::user()->created_at->format('M. Y') }}</small>
@@ -71,14 +71,7 @@
         </section>
     </div>
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
+
 </div>
 
 <script src="{{ mix('js/app.js') }}" defer></script>

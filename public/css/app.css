@@ -34628,7 +34628,7 @@ a.disabled.mailbox-attachment-close {
 }
 
 .login-card-body .input-group .form-control,
-.register-card-body .input-group .form-control {
+.register-card-body .input-group  {
   border-right: 0;
 }
 
