@@ -24,6 +24,6 @@ class UserSeeder extends Seeder
             'email' => 'author@movie.review',
             'password' => bcrypt('12345678')
         ]);
-        $admin->assignRole('author');
+        $author->assignRole('author');
     }
 }

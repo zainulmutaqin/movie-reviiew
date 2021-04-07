@@ -16,10 +16,14 @@ class WelcomeController extends Controller
     }
 
     public function cdetail($slug_category){
+        $category = Category::where('slug', '=', $slug_category)->get();
+
+        if(!$category->count()) {
+            abort(404);
+        }
         $categories = Article::with('category')->whereHas('category', function($q) use($slug_category) {
             $q->where('slug', '=', $slug_category);})
-            ->firstOrFail();
-            $category = Category::where('slug', '=', $slug_category)->get();
+            ->get();
             $cat = Category::get();
                 
             return view ('cdetail', compact('categories','category','cat'));
@@ -27,7 +31,7 @@ class WelcomeController extends Controller
 
     public function detail($slug_category, $slug){
         $cat = Category::get();
-        $article =  $categories = Article::with('category')->whereHas('category', function($q) use($slug_category) {
+        $article  = Article::with('category')->whereHas('category', function($q) use($slug_category) {
             $q->where('slug', '=', $slug_category);})
             ->where('slug', $slug)
             ->firstOrFail();
