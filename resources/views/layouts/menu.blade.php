@@ -11,3 +11,11 @@
         <p>Category</p>
     </a>
 </li>
+
+
+<li class="nav-item">
+    <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('user*') ? 'active' : ''}}">
+        <i class="nav-icon fas fa-edit"></i>
+        <p>User</p>
+    </a>
+</li>

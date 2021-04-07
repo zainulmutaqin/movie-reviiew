@@ -18,7 +18,7 @@ class WelcomeController extends Controller
     public function cdetail($slug_category){
         $categories = Article::with('category')->whereHas('category', function($q) use($slug_category) {
             $q->where('slug', '=', $slug_category);})
-            ->get();
+            ->firstOrFail();
             $category = Category::where('slug', '=', $slug_category)->get();
             $cat = Category::get();
                 
@@ -30,7 +30,7 @@ class WelcomeController extends Controller
         $article =  $categories = Article::with('category')->whereHas('category', function($q) use($slug_category) {
             $q->where('slug', '=', $slug_category);})
             ->where('slug', $slug)
-            ->first();
+            ->firstOrFail();
     
         return view ('detail', compact('article','cat'));
     }

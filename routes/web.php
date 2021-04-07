@@ -66,5 +66,5 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-Route::get('/{category:slug}', 'WelcomeController@cdetail')->name('cdetail');
-Route::get('/{cattegory:slug}/{article:slug}', 'WelcomeController@detail')->name('detail');
+Route::get('/{slug_category}', 'WelcomeController@cdetail')->name('cdetail');
+Route::get('/{slug_category}/{slug}', 'WelcomeController@detail')->name('detail');
